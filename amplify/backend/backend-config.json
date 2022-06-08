@@ -1,6 +1,21 @@
 {
   "auth": {
-    "amplifyapp4df10e73": {
+    "userPoolGroups": {
+      "service": "Cognito-UserPool-Groups",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "auth",
+          "resourceName": "amplifyapp2b2bc6fc2b2bc6fc",
+          "attributes": [
+            "UserPoolId",
+            "AppClientIDWeb",
+            "AppClientID"
+          ]
+        }
+      ]
+    },
+    "amplifyapp2b2bc6fc2b2bc6fc": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],
@@ -11,7 +26,8 @@
           "EMAIL"
         ],
         "signupAttributes": [
-          "EMAIL"
+          "EMAIL",
+          "NAME"
         ],
         "passwordProtectionSettings": {
           "passwordPolicyMinLength": 8,
@@ -44,5 +60,6 @@
         }
       }
     }
-  }
+  },
+  "function": {}
 }
