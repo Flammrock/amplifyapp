@@ -42,10 +42,10 @@ function App() {
 
   return (
     <Authenticator>
-      {({ signOut, user }) => (
-        <div className="App">
+      {({ signOut, user }) => {
+        return <div className="App">
           <p>
-            Hey {user.username}, welcome to my channel, with auth!
+            Hey {user.attributes.name}, welcome to my channel, with auth!
           </p>
           <button onClick={signOut}>Sign out</button>
           <hr />
@@ -72,7 +72,7 @@ function App() {
             }
           </div>
         </div>
-      )}
+      }}
     </Authenticator>
   );
 }
