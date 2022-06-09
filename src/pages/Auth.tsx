@@ -1,5 +1,4 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import './Page.css';
 import './Auth.css';
 
 //import ExploreContainer from '../components/ExploreContainer';

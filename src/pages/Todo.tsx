@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonGrid, IonRow, IonCol } from '@ionic/react';
-import './Page.css';
 import './Todo.css';
 
 import { Auth, Hub } from 'aws-amplify';
@@ -36,7 +35,7 @@ const TodoPage: React.FC = () => {
             <IonTitle size="large">Todo</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <AuthenticatorGateWay path="/auth">
+        <AuthenticatorGateWay path="/auth" center={false}>
           <IonGrid>
             <IonRow>
               <IonCol size="2"></IonCol>

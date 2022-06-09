@@ -70,5 +70,12 @@
       }
     }
   },
-  "function": {}
+  "function": {},
+  "storage": {
+    "s361da0b70": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": []
+    }
+  }
 }
