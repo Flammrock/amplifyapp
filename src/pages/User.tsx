@@ -1,27 +1,27 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import './Page.css';
-import './Auth.css';
+import './Todo.css';
 
 //import ExploreContainer from '../components/ExploreContainer';
 import AuthenticatorGateWay from '../components/AuthenticatorGateway';
 import Header from '../components/Header';
+import User from '../components/User';
 
-const Auth: React.FC = () => {
+const UserPage: React.FC = () => {
   return (
     <IonPage>
-      <Header title="Auth"></Header>
+      <Header title="User"></Header>
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">Auth</IonTitle>
+            <IonTitle size="large">User</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <AuthenticatorGateWay>
-          <div>You are connected!</div>
+        <AuthenticatorGateWay path="/auth">
+          <User />
         </AuthenticatorGateWay>
       </IonContent>
     </IonPage>
   );
 };
-
-export default Auth;
+export default UserPage;

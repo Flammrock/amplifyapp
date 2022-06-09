@@ -14,6 +14,7 @@ import { ellipse, square, triangle } from 'ionicons/icons';
 import Home from './pages/Home';
 import Auth from './pages/Auth';
 import Todo from './pages/Todo';
+import User from './pages/User';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -50,6 +51,9 @@ const App: React.FC = () => (
           </Route>
           <Route exact path="/todo">
             <Todo />
+          </Route>
+          <Route exact path="/user">
+            <User />
           </Route>
           <Route exact path="/">
             <Redirect to="/home" />

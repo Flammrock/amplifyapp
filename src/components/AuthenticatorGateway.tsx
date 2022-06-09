@@ -7,8 +7,7 @@ import {
   IonLabel
 } from '@ionic/react';
 
-//import { API } from 'aws-amplify';
-import Auth from '@aws-amplify/auth';
+import { Auth, Hub } from 'aws-amplify';
 import { Authenticator } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
 
@@ -20,55 +19,61 @@ interface IUser {
   email: string;
 }
 
-const AuthenticatorGateWay: React.FC<{ children: React.ReactElement, path?: string }> = ({ children, path }) => {
+const AuthenticatorGateWay: React.FC<{ children: React.ReactElement, path?: string, center?: boolean }> = ({ children, path, center }) => {
 
-  let [user, setUser] = useState<IUser|boolean|null>(null);
+  if (typeof center === 'undefined') center = true;
+
+  let [user, setUser] = useState<IUser | boolean | null>(null);
   useEffect(() => {
     let updateUser = async () => {
       try {
         let user = await Auth.currentAuthenticatedUser();
-        setUser(user);
+        setUser(user.attributes);
       } catch {
         setUser(false);
       }
     };
+    Hub.listen('auth', updateUser);
     updateUser();
+    return () => Hub.remove('auth', updateUser);
   }, []);
 
-  if (user==null) return <div className="auth-content"></div>;
+  const applyCenter = (data: React.ReactElement): React.ReactElement => {
+    if (!center) return data;
+    return (
+      <div className="auth-content">
+        {data}
+      </div>
+    );
+  };
+
+  if (user == null) return applyCenter(<></>);
+
 
   if (typeof path === 'string') {
     if (typeof user === 'boolean' && !user) {
-      return (
-        <div className="auth-content">
-          <IonList>
-            <IonItem>
-              <IonLabel>
-                <strong>You do not have enough permissions to access this content.</strong>
-              </IonLabel>
-            </IonItem>
-            <IonItem>
-              <Link to="/auth"><IonButton>Click here to login</IonButton></Link>
-            </IonItem>
-          </IonList>
-        </div>
+      return applyCenter(
+        <IonList>
+          <IonItem>
+            <IonLabel>
+              <strong>You do not have enough permissions to access this content.</strong>
+            </IonLabel>
+          </IonItem>
+          <IonItem>
+            <Link to="/auth"><IonButton>Click here to login</IonButton></Link>
+          </IonItem>
+        </IonList>
       );
     } else {
-    return (
-      <div className="auth-content">
-        {children}
-      </div>
-    );
+      return applyCenter(children);
     }
   } else {
-    return (
-      <div className="auth-content">
-        <Authenticator>
-          {({ signOut, user }) => {
-            return children;
-          }}
-        </Authenticator>
-      </div>
+    return applyCenter(
+      <Authenticator>
+        {({ signOut, user }) => {
+          return children;
+        }}
+      </Authenticator>
     );
   }
 };
