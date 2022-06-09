@@ -14,7 +14,8 @@
     "categories": {
       "auth": {
         "amplifyappc258b46cc258b46c": {},
-        "amplifyapp07257b4407257b44": {}
+        "amplifyapp07257b4407257b44": {},
+        "userPoolGroups": {}
       }
     }
   }
