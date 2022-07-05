@@ -1,10 +1,18 @@
 [
   {
-    "groupName": "clients",
+    "groupName": "admins",
     "precedence": 1
   },
   {
-    "groupName": "admins",
+    "groupName": "contributeurs",
     "precedence": 2
+  },
+  {
+    "groupName": "partenaires",
+    "precedence": 3
+  },
+  {
+    "groupName": "touriste",
+    "precedence": 4
   }
 ]

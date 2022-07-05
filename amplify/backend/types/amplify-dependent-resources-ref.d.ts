@@ -1,10 +1,12 @@
 export type AmplifyDependentResourcesAttributes = {
     "auth": {
         "userPoolGroups": {
-            "clientsGroupRole": "string",
-            "adminsGroupRole": "string"
+            "adminsGroupRole": "string",
+            "contributeursGroupRole": "string",
+            "partenairesGroupRole": "string",
+            "touristeGroupRole": "string"
         },
-        "amplifyapp07257b4407257b44": {
+        "amplifyapp1c3403b51c3403b5": {
             "IdentityPoolId": "string",
             "IdentityPoolName": "string",
             "UserPoolId": "string",
@@ -16,8 +18,17 @@ export type AmplifyDependentResourcesAttributes = {
     },
     "api": {
         "amplifyapp": {
+            "GraphQLAPIKeyOutput": "string",
             "GraphQLAPIIdOutput": "string",
             "GraphQLAPIEndpointOutput": "string"
+        }
+    },
+    "function": {
+        "amplifyapp1c3403b51c3403b5PostConfirmation": {
+            "Name": "string",
+            "Arn": "string",
+            "LambdaExecutionRole": "string",
+            "Region": "string"
         }
     },
     "storage": {

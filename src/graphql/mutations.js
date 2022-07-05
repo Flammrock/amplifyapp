@@ -11,6 +11,16 @@ export const createTodo = /* GraphQL */ `
       name
       description
       image
+      comments {
+        items {
+          id
+          content
+          createdAt
+          updatedAt
+          todoCommentsId
+        }
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -26,6 +36,16 @@ export const updateTodo = /* GraphQL */ `
       name
       description
       image
+      comments {
+        items {
+          id
+          content
+          createdAt
+          updatedAt
+          todoCommentsId
+        }
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -41,8 +61,60 @@ export const deleteTodo = /* GraphQL */ `
       name
       description
       image
+      comments {
+        items {
+          id
+          content
+          createdAt
+          updatedAt
+          todoCommentsId
+        }
+        nextToken
+      }
       createdAt
       updatedAt
+    }
+  }
+`;
+export const createComment = /* GraphQL */ `
+  mutation CreateComment(
+    $input: CreateCommentInput!
+    $condition: ModelCommentConditionInput
+  ) {
+    createComment(input: $input, condition: $condition) {
+      id
+      content
+      createdAt
+      updatedAt
+      todoCommentsId
+    }
+  }
+`;
+export const updateComment = /* GraphQL */ `
+  mutation UpdateComment(
+    $input: UpdateCommentInput!
+    $condition: ModelCommentConditionInput
+  ) {
+    updateComment(input: $input, condition: $condition) {
+      id
+      content
+      createdAt
+      updatedAt
+      todoCommentsId
+    }
+  }
+`;
+export const deleteComment = /* GraphQL */ `
+  mutation DeleteComment(
+    $input: DeleteCommentInput!
+    $condition: ModelCommentConditionInput
+  ) {
+    deleteComment(input: $input, condition: $condition) {
+      id
+      content
+      createdAt
+      updatedAt
+      todoCommentsId
     }
   }
 `;

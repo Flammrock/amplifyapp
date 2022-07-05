@@ -6,7 +6,7 @@
       "dependsOn": [
         {
           "category": "auth",
-          "resourceName": "amplifyapp07257b4407257b44",
+          "resourceName": "amplifyapp1c3403b51c3403b5",
           "attributes": [
             "UserPoolId",
             "AppClientIDWeb",
@@ -16,15 +16,26 @@
         }
       ]
     },
-    "amplifyapp07257b4407257b44": {
+    "amplifyapp1c3403b51c3403b5": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
-      "dependsOn": [],
+      "dependsOn": [
+        {
+          "category": "function",
+          "resourceName": "amplifyapp1c3403b51c3403b5PostConfirmation",
+          "triggerProvider": "Cognito",
+          "attributes": [
+            "Arn",
+            "Name"
+          ]
+        }
+      ],
       "customAuth": false,
       "frontendAuthConfig": {
         "socialProviders": [],
         "usernameAttributes": [
-          "EMAIL"
+          "EMAIL",
+          "PHONE_NUMBER"
         ],
         "signupAttributes": [
           "EMAIL",
@@ -51,7 +62,7 @@
       "dependsOn": [
         {
           "category": "auth",
-          "resourceName": "amplifyapp07257b4407257b44",
+          "resourceName": "amplifyapp1c3403b51c3403b5",
           "attributes": [
             "UserPoolId"
           ]
@@ -60,17 +71,30 @@
       "output": {
         "authConfig": {
           "defaultAuthentication": {
-            "authenticationType": "AMAZON_COGNITO_USER_POOLS",
-            "userPoolConfig": {
-              "userPoolId": "authamplifyapp07257b4407257b44"
+            "authenticationType": "API_KEY",
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 7
             }
           },
-          "additionalAuthenticationProviders": []
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+              "userPoolConfig": {
+                "userPoolId": "authamplifyapp1c3403b51c3403b5"
+              }
+            }
+          ]
         }
       }
     }
   },
-  "function": {},
+  "function": {
+    "amplifyapp1c3403b51c3403b5PostConfirmation": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
   "storage": {
     "s361da0b70": {
       "service": "S3",

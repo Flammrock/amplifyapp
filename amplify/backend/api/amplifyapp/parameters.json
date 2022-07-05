@@ -4,9 +4,8 @@
   "DynamoDBEnableServerSideEncryption": false,
   "AuthCognitoUserPoolId": {
     "Fn::GetAtt": [
-      "authamplifyapp07257b4407257b44",
+      "authamplifyapp1c3403b51c3403b5",
       "Outputs.UserPoolId"
     ]
-  },
-  "AuthModeLastUpdated": "2022-06-09T00:58:40.780Z"
+  }
 }

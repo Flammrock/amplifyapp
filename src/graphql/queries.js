@@ -8,6 +8,16 @@ export const getTodo = /* GraphQL */ `
       name
       description
       image
+      comments {
+        items {
+          id
+          content
+          createdAt
+          updatedAt
+          todoCommentsId
+        }
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -25,8 +35,40 @@ export const listTodos = /* GraphQL */ `
         name
         description
         image
+        comments {
+          nextToken
+        }
         createdAt
         updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getComment = /* GraphQL */ `
+  query GetComment($id: ID!) {
+    getComment(id: $id) {
+      id
+      content
+      createdAt
+      updatedAt
+      todoCommentsId
+    }
+  }
+`;
+export const listComments = /* GraphQL */ `
+  query ListComments(
+    $filter: ModelCommentFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listComments(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        content
+        createdAt
+        updatedAt
+        todoCommentsId
       }
       nextToken
     }

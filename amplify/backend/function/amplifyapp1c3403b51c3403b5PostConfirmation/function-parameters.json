@@ -1,0 +1,18 @@
+{
+  "trigger": true,
+  "modules": [
+    "add-to-group"
+  ],
+  "parentResource": "amplifyapp1c3403b51c3403b5",
+  "functionName": "amplifyapp1c3403b51c3403b5PostConfirmation",
+  "resourceName": "amplifyapp1c3403b51c3403b5PostConfirmation",
+  "parentStack": "auth",
+  "triggerEnvs": [],
+  "triggerDir": "C:\\snapshot\\repo\\build\\node_modules\\@aws-amplify\\amplify-category-auth\\provider-utils\\awscloudformation\\triggers\\PostConfirmation",
+  "triggerTemplate": "PostConfirmation.json.ejs",
+  "triggerEventPath": "PostConfirmation.event.json",
+  "roleName": "amplifyapp1c3403b51c3403b5PostConfirmation",
+  "skipEdit": true,
+  "GROUP": "touriste",
+  "enableCors": false
+}

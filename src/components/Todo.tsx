@@ -31,6 +31,7 @@ const Todo: React.FC<{ isAdmin: boolean }> = ({ isAdmin }) => {
 
   async function fetchTodos() {
     const apiData: any = await API.graphql({ query: listTodos });
+    console.log(apiData.data.listTodos.items);
     await Promise.all(apiData.data.listTodos.items.map(async (todo:any) => {
       if (todo.image) {
         const image = await Storage.get(todo.image);
@@ -43,7 +44,8 @@ const Todo: React.FC<{ isAdmin: boolean }> = ({ isAdmin }) => {
 
   async function createTodo() {
     if (!formData.name || !formData.description) return;
-    await API.graphql({ query: createTodoMutation, variables: { input: formData } });
+    console.log({...formData, comments: {items:[{content:'salut'}]} });
+    await API.graphql({ query: createTodoMutation, variables: { input: {...formData, comments: [{content:'salut'}]} } });
     if (formData.image) {
       const image = await Storage.get(formData.image);
       formData.image = image;

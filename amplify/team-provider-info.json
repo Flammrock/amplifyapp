@@ -9,13 +9,20 @@
       "UnauthRoleName": "amplify-amplify69a1e6714d9c4-staging-81440-unauthRole",
       "StackName": "amplify-amplify69a1e6714d9c4-staging-81440",
       "StackId": "arn:aws:cloudformation:us-east-2:519918073452:stack/amplify-amplify69a1e6714d9c4-staging-81440/0c33c400-e703-11ec-8b78-0253c5901f52",
-      "AmplifyAppId": "dkh8effzjvchk"
+      "AmplifyAppId": "dkh8effzjvchk",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-amplify69a1e6714d9c4-staging-81440-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
     },
     "categories": {
       "auth": {
         "amplifyappc258b46cc258b46c": {},
-        "amplifyapp07257b4407257b44": {},
-        "userPoolGroups": {}
+        "amplifyapp1c3403b51c3403b5": {}
+      },
+      "function": {
+        "amplifyapp1c3403b51c3403b5PostConfirmation": {
+          "GROUP": "touriste",
+          "deploymentBucketName": "amplify-amplify69a1e6714d9c4-staging-81440-deployment",
+          "s3Key": "amplify-builds/amplifyapp1c3403b51c3403b5PostConfirmation-4a6266586a315666756d-build.zip"
+        }
       }
     }
   }

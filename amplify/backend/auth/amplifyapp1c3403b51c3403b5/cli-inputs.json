@@ -1,10 +1,10 @@
 {
   "version": "1",
   "cognitoConfig": {
-    "identityPoolName": "amplifyapp07257b44_identitypool_07257b44",
+    "identityPoolName": "amplifyapp1c3403b5_identitypool_1c3403b5",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "amplif07257b44",
-    "userPoolName": "amplifyapp07257b44_userpool_07257b44",
+    "resourceNameTruncated": "amplif1c3403b5",
+    "userPoolName": "amplifyapp1c3403b5_userpool_1c3403b5",
     "autoVerifiedAttributes": [
       "email"
     ],
@@ -32,23 +32,29 @@
     "userpoolClientReadAttributes": [
       "email"
     ],
-    "userpoolClientLambdaRole": "amplif07257b44_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "amplif1c3403b5_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "07257b44",
-    "resourceName": "amplifyapp07257b4407257b44",
+    "sharedId": "1c3403b5",
+    "resourceName": "amplifyapp1c3403b51c3403b5",
     "authSelections": "identityPoolAndUserPool",
     "useDefault": "manual",
     "thirdPartyAuth": false,
     "usernameAttributes": [
-      "email"
+      "email, phone_number"
     ],
     "userPoolGroups": true,
     "adminQueries": false,
-    "triggers": {},
+    "triggers": {
+      "PostConfirmation": [
+        "add-to-group"
+      ]
+    },
     "hostedUI": false,
     "userPoolGroupList": [
-      "clients",
-      "admins"
+      "admins",
+      "contributeurs",
+      "partenaires",
+      "touriste"
     ],
     "serviceName": "Cognito",
     "usernameCaseSensitive": false,

@@ -5,7 +5,7 @@
 type Todo
   @model (subscriptions: { level: public })
   @auth(rules: [
-    { allow: groups, groups: ["clients"], operations: [read]}
+    { allow: groups, groups: ["touristes"], operations: [read]}
     { allow: groups, groups: ["admins"], operations: [read, create, update, delete]}
   ])
 {
@@ -13,4 +13,16 @@ type Todo
   name: String!
   description: String
   image: String
+  comments: [Comment] @hasMany
+}
+
+type Comment
+  @model (subscriptions: { level: public })
+  @auth(rules: [
+    { allow: groups, groups: ["touristes"], operations: [read]}
+    { allow: groups, groups: ["admins"], operations: [read, create, update, delete]}
+  ])
+{
+  id: ID!
+  content: String!
 }
