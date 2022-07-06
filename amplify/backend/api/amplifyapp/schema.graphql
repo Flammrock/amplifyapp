@@ -26,3 +26,17 @@ type Comment
   id: ID!
   content: String!
 }
+
+type Test
+  @model (subscriptions: { level: public })
+  @auth(rules: [
+    { allow: groups, groups: ["touristes"], operations: [read]}
+    { allow: groups, groups: ["admins"], operations: [read, create, update, delete]}
+  ])
+{
+  id: ID!
+  name: String!
+  description: String
+  image: String
+  comments: [Comment] @hasMany
+}
